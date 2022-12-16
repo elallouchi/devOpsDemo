@@ -10,7 +10,7 @@ pipeline{
                 
                 script{
                     
-                    git branch: 'main', url: 'https://github.com/vikash-kumar01/mrdevops_javaapplication.git'
+                    git branch: 'main', url: 'https://github.com/elallouchi/devOpsDemo.git'
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline{
                 
                 script{
                     
-                    sh 'mvn test'
+                    bat 'C:\\apache-maven-3.5.4\\bin\\mvn test'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline{
                 
                 script{
                     
-                    sh 'mvn verify -DskipUnitTests'
+                    bat 'C:\\apache-maven-3.5.4\\bin\\mvn verify -DskipUnitTests'
                 }
             }
         }
@@ -40,7 +40,7 @@ pipeline{
                 
                 script{
                     
-                    sh 'mvn clean install'
+                    bat 'C:\\apache-maven-3.5.4\\bin\\mvn clean install'
                 }
             }
         }
@@ -52,7 +52,7 @@ pipeline{
                     
                     withSonarQubeEnv(credentialsId: 'sonar-api') {
                         
-                        sh 'mvn clean package sonar:sonar'
+                        bat 'C:\\apache-maven-3.5.4\\bin\\mvn clean package sonar:sonar'
                     }
                    }
                     
